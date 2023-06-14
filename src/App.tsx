@@ -11,7 +11,7 @@ export type SearchUserType = {
 };
 
 function App() {
-  const [actualSearch, setActualSearch] = useState('');
+  const [actualSearch, setActualSearch] = useState('alexander-shevtsov');
   const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null);
 
   useEffect(() => {
@@ -20,13 +20,14 @@ function App() {
     }
   }, [selectedUser]);
 
-  const actualsearch= (temp: string) => setActualSearch(temp);
+  const actualsearch = (temp: string) => setActualSearch(temp);
   const setselecteduser = (user: SearchUserType | null) => setSelectedUser(user);
 
   return (
     <div className={s.container}>
       <div>
-        <TempSearch actualSearchClick={actualsearch} />
+        <TempSearch actualSearchClick={actualsearch} value={actualSearch} />
+        <button onClick={() => setActualSearch('alexander-shevtsov')}>Reset</button>
         <Users setselecteduser={setselecteduser} selectedUser={selectedUser} actualSearch={actualSearch} />
       </div>
       <UserDetails selectedUser={selectedUser} />

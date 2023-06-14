@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export type     ActualSearchType = (temp: string) => void;
-export const TempSearch = ({ actualSearchClick }: { actualSearchClick: ActualSearchType }) => {
-  const [tempSearch, setTempSearch] = useState('kamasutra');
+export type ActualSearchType = (temp: string) => void;
+export const TempSearch = ({ actualSearchClick, value }: { actualSearchClick: ActualSearchType; value: string }) => {
+  const [tempSearch, setTempSearch] = useState(value);
+
+  useEffect(() => {
+    setTempSearch(value);
+  }, [value]);
   return (
     <>
       <input placeholder="search" value={tempSearch} onChange={(e) => setTempSearch(e.currentTarget.value)} />
