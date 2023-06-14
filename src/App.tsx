@@ -10,7 +10,6 @@ export type SearchUserType = {
   id: number;
 };
 
-export type actualSearch = (temp: string) => void;
 function App() {
   const [actualSearch, setActualSearch] = useState('');
   const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null);
@@ -21,7 +20,7 @@ function App() {
     }
   }, [selectedUser]);
 
-  const actualsearch: actualSearch = (temp: string) => setActualSearch(temp);
+  const actualsearch= (temp: string) => setActualSearch(temp);
   const setselecteduser = (user: SearchUserType | null) => setSelectedUser(user);
 
   return (
