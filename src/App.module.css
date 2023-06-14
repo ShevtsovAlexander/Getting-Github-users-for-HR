@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+
+}
+div {
+    padding: 30px;
+}
+
+.selected {
+    background-color: darkturquoise;
+}
+li{
+    cursor: pointer;
+}
