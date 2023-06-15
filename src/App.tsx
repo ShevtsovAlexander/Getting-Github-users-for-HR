@@ -20,15 +20,12 @@ function App() {
     }
   }, [selectedUser]);
 
-  const actualsearch = (temp: string) => setActualSearch(temp);
-  const setselecteduser = (user: SearchUserType | null) => setSelectedUser(user);
-
   return (
     <div className={s.container}>
       <div>
-        <TempSearch actualSearchClick={actualsearch} value={actualSearch} />
+        <TempSearch actualSearchClick={setActualSearch} value={actualSearch} />
         <button onClick={() => setActualSearch('alexander-shevtsov')}>Reset</button>
-        <Users setselecteduser={setselecteduser} selectedUser={selectedUser} actualSearch={actualSearch} />
+        <Users setselecteduser={setSelectedUser} selectedUser={selectedUser} actualSearch={actualSearch} />
       </div>
       <UserDetails selectedUser={selectedUser} />
     </div>

@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export type ActualSearchType = (temp: string) => void;
 export const TempSearch = ({ actualSearchClick, value }: { actualSearchClick: ActualSearchType; value: string }) => {
   const [tempSearch, setTempSearch] = useState(value);
 
-  useEffect(() => {
+  useMemo(() => {
     setTempSearch(value);
   }, [value]);
   return (

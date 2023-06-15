@@ -16,11 +16,9 @@ export const Users = ({ selectedUser, setselecteduser, actualSearch }: UsersType
   const [users, setUsers] = useState<SearchUserType[]>([]);
 
   useEffect(() => {
-    axios
-      .get<SearchResult>(`https://api.github.com/search/users?q=${actualSearch ? actualSearch : 'alexander-shevtsov'}`)
-      .then((res) => {
-        setUsers(res.data.items);
-      });
+    axios.get<SearchResult>(`https://api.github.com/search/users?q=${actualSearch}`).then((res) => {
+      setUsers(res.data.items);
+    });
   }, [actualSearch]);
   return (
     <>
